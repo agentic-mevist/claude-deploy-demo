@@ -98,3 +98,87 @@ function seedScores() {
   });
   return out;
 }
+
+// Helper: find an exercise across categories.
+function findExerciseDef(exerciseId) {
+  for (const catId of Object.keys(EXERCISES)) {
+    const ex = EXERCISES[catId].find((e) => e.id === exerciseId);
+    if (ex) {
+      const cat = CATEGORIES.find((c) => c.id === catId);
+      return { ...ex, category: catId, categoryLabel: cat ? cat.label : catId };
+    }
+  }
+  return null;
+}
+
+// Flattened list, alphabetical, with category attached.
+function allExerciseDefs() {
+  const out = [];
+  for (const catId of Object.keys(EXERCISES)) {
+    const cat = CATEGORIES.find((c) => c.id === catId);
+    EXERCISES[catId].forEach((e) =>
+      out.push({ ...e, category: catId, categoryLabel: cat ? cat.label : catId })
+    );
+  }
+  return out.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+// Pre-defined templates available to every user out of the box.
+const EXAMPLE_TEMPLATES = [
+  {
+    id: 'ex_legs',
+    name: 'Legs day',
+    isExample: true,
+    exercises: [
+      { exerciseId: 'squat', sets: 4 },
+      { exerciseId: 'press', sets: 3 },
+      { exerciseId: 'rdl',   sets: 3 },
+      { exerciseId: 'curl',  sets: 3 },
+      { exerciseId: 'split', sets: 3 },
+    ],
+  },
+  {
+    id: 'ex_push',
+    name: 'Push day',
+    isExample: true,
+    exercises: [
+      { exerciseId: 'bench',  sets: 4 },
+      { exerciseId: 'ohp',    sets: 3 },
+      { exerciseId: 'incdb',  sets: 3 },
+      { exerciseId: 'dip',    sets: 3 },
+      { exerciseId: 'pushup', sets: 3 },
+    ],
+  },
+  {
+    id: 'ex_pull',
+    name: 'Pull day',
+    isExample: true,
+    exercises: [
+      { exerciseId: 'dead',  sets: 3 },
+      { exerciseId: 'brow',  sets: 3 },
+      { exerciseId: 'lat',   sets: 3 },
+      { exerciseId: 'pull',  sets: 3 },
+      { exerciseId: 'cable', sets: 3 },
+    ],
+  },
+  {
+    id: 'ex_cardio',
+    name: 'Cardio mix',
+    isExample: true,
+    exercises: [
+      { exerciseId: 'bike',  sets: 1 },
+      { exerciseId: 'row',   sets: 1 },
+      { exerciseId: 'stair', sets: 1 },
+    ],
+  },
+  {
+    id: 'ex_recovery',
+    name: 'Yoga + recovery',
+    isExample: true,
+    exercises: [
+      { exerciseId: 'yin',    sets: 1 },
+      { exerciseId: 'mob',    sets: 1 },
+      { exerciseId: 'breath', sets: 1 },
+    ],
+  },
+];
