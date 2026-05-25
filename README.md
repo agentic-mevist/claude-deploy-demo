@@ -1,11 +1,21 @@
-# claude-deploy-demo
+# Airport Baggage Tycoon
 
-A tiny static landing page generated, committed, and deployed end-to-end by
-[Claude Code](https://claude.com/code).
+A small endless tycoon game where you manage airport baggage check-in counters,
+hire agents, upgrade equipment, and try to survive as long as possible before
+your reputation drops to zero.
 
-- **Source**: this repo
+- **Stack**: plain HTML5 Canvas + vanilla JS (no build step)
 - **Host**: Cloudflare Pages
-- **Stack**: plain HTML / CSS / JS (no build step)
+- **View**: isometric 2.5D, cartoon style
+
+## Gameplay
+
+- Passengers arrive at the entrance and queue at one of your counters.
+- Four passenger types: tourist, business, family, late.
+- Three counter types: regular, **priority** (faster), **drop-off** (only for 0-1 bags).
+- Each counter can be upgraded (level) and its agent trained (skill).
+- Patience meter ticks down while passengers wait. Angry walk-outs cost reputation.
+- Endless: spawn rate ramps up with time.
 
 ## Local preview
 
@@ -13,8 +23,3 @@ A tiny static landing page generated, committed, and deployed end-to-end by
 python3 -m http.server 8080
 # open http://localhost:8080
 ```
-
-## Deploy
-
-This repo is deployed to Cloudflare Pages via the Cloudflare API. Any push
-to `main` can be wired to trigger a new deployment.

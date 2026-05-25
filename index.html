@@ -1,34 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deployed by Claude</title>
+  <title>Airport Baggage Tycoon</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="card">
-    <div class="badge">live</div>
-    <h1>Hello from Cloudflare Pages</h1>
-    <p class="subtitle">
-      This page was generated, committed to GitHub, and deployed end-to-end by Claude Code
-      using the Cloudflare and GitHub API tokens you provided.
-    </p>
+  <div id="game-root">
+    <canvas id="game"></canvas>
 
-    <ul class="meta">
-      <li><span>build</span><strong id="build-time">—</strong></li>
-      <li><span>host</span><strong>Cloudflare Pages</strong></li>
-      <li><span>source</span><strong>github.com/hireclaw-websites</strong></li>
-    </ul>
+    <div id="hud">
+      <div class="hud-stat" id="hud-money">
+        <span class="label">$</span>
+        <span class="value" id="money">250</span>
+      </div>
+      <div class="hud-stat" id="hud-rep">
+        <span class="label">репутация</span>
+        <span class="value"><span id="reputation">100</span><small>/100</small></span>
+      </div>
+      <div class="hud-stat">
+        <span class="label">время</span>
+        <span class="value" id="time">0:00</span>
+      </div>
+      <div class="hud-stat">
+        <span class="label">обслужено</span>
+        <span class="value" id="served">0</span>
+      </div>
+    </div>
 
-    <button id="ping" class="ping">say hi</button>
-    <p id="reply" class="reply" aria-live="polite"></p>
-  </main>
+    <div id="shop">
+      <div class="shop-title">Построить стойку</div>
+      <button data-build="regular" class="shop-btn">
+        <span class="dot dot-regular"></span>
+        <span class="shop-name">Обычная</span>
+        <span class="shop-cost">$200</span>
+      </button>
+      <button data-build="priority" class="shop-btn">
+        <span class="dot dot-priority"></span>
+        <span class="shop-name">Priority</span>
+        <span class="shop-cost">$400</span>
+      </button>
+      <button data-build="dropoff" class="shop-btn">
+        <span class="dot dot-dropoff"></span>
+        <span class="shop-name">Drop-off</span>
+        <span class="shop-cost">$300</span>
+      </button>
+      <div class="shop-hint" id="shop-hint">Кликни на стойку, чтобы прокачать</div>
+    </div>
 
-  <footer>
-    crafted by <span>claude-opus-4-7</span>
-  </footer>
+    <div id="counter-panel" class="hidden">
+      <div class="cp-header">
+        <div class="cp-title" id="cp-title">Стойка</div>
+        <button id="close-panel" aria-label="close">✕</button>
+      </div>
+      <div class="cp-info">
+        <div><span>Уровень стойки</span><strong id="cp-level">1</strong></div>
+        <div><span>Уровень агента</span><strong id="cp-agent">1</strong></div>
+        <div><span>Скорость обслуживания</span><strong id="cp-speed">1.00×</strong></div>
+      </div>
+      <button class="cp-upgrade" id="upgrade-counter">
+        <span>Прокачать стойку</span>
+        <span id="up-counter-cost">$100</span>
+      </button>
+      <button class="cp-upgrade" id="upgrade-agent">
+        <span>Обучить агента</span>
+        <span id="up-agent-cost">$80</span>
+      </button>
+    </div>
 
-  <script src="app.js"></script>
+    <div id="legend">
+      <div class="legend-row"><span class="passenger-pip" style="background:#8acaff"></span><span>Турист (1-2 багажа)</span></div>
+      <div class="legend-row"><span class="passenger-pip" style="background:#f0d960"></span><span>Бизнес (0-1, нетерпелив)</span></div>
+      <div class="legend-row"><span class="passenger-pip" style="background:#ff9a7a"></span><span>Семья (3-4 багажа)</span></div>
+      <div class="legend-row"><span class="passenger-pip" style="background:#ff5a5a"></span><span>Опаздывает (мало терпения)</span></div>
+    </div>
+
+    <div id="build-banner" class="hidden">Выбери свободный слот · <button id="build-cancel">Отмена</button></div>
+
+    <div id="game-over" class="hidden">
+      <h2>Терминал закрыт</h2>
+      <p class="sub">Репутация упала до нуля.</p>
+      <div class="go-stats">
+        <div><span>Время</span><strong id="final-time">0:00</strong></div>
+        <div><span>Обслужено</span><strong id="final-served">0</strong></div>
+        <div><span>Потеряно</span><strong id="final-lost">0</strong></div>
+        <div><span>Рекорд</span><strong id="best-time">0:00</strong></div>
+      </div>
+      <button id="restart">Заново</button>
+    </div>
+
+    <div id="start-screen">
+      <h1>✈️ Airport Baggage Tycoon</h1>
+      <p class="sub">Управляй стойками регистрации багажа. Нанимай агентов, прокачивай стойки, успей обслужить всех — пока репутация не упала до нуля.</p>
+      <div class="legend-card">
+        <div class="legend-row"><span class="passenger-pip" style="background:#8acaff"></span><span><strong>Турист</strong> — обычное терпение, 1-2 багажа</span></div>
+        <div class="legend-row"><span class="passenger-pip" style="background:#f0d960"></span><span><strong>Бизнес</strong> — мало багажа, любит priority</span></div>
+        <div class="legend-row"><span class="passenger-pip" style="background:#ff9a7a"></span><span><strong>Семья</strong> — 3-4 багажа, обычные стойки</span></div>
+        <div class="legend-row"><span class="passenger-pip" style="background:#ff5a5a"></span><span><strong>Опаздывает</strong> — обслужи быстро!</span></div>
+      </div>
+      <p class="hint">Drop-off — только для 0-1 багажа. Priority — быстрее всех, но дороже.</p>
+      <button id="start">Открыть терминал</button>
+    </div>
+  </div>
+  <script src="game.js"></script>
 </body>
 </html>
