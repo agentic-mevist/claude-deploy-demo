@@ -2,33 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deployed by Claude</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#14110d" />
+  <title>OMNI Leaderboard — Wellness Club, Bali Seseh</title>
+  <meta name="description" content="Track your training and climb the boards. A fan-made leaderboard companion for OMNI Wellness Club, Bali." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 221 221'><circle cx='110.5' cy='110.5' r='100' fill='none' stroke='%23c9a876' stroke-width='8'/><circle cx='110.5' cy='110.5' r='60' fill='none' stroke='%23c9a876' stroke-width='8'/></svg>" />
 </head>
 <body>
-  <main class="card">
-    <div class="badge">live</div>
-    <h1>Hello from Cloudflare Pages</h1>
-    <p class="subtitle">
-      This page was generated, committed to GitHub, and deployed end-to-end by Claude Code
-      using the Cloudflare and GitHub API tokens you provided.
-    </p>
+  <header class="topbar">
+    <a class="brand" href="#/home" aria-label="OMNI Leaderboard home">
+      <svg class="brand-mark" viewBox="0 0 221 221" aria-hidden="true">
+        <path d="M110.457 219.065C81.4467 219.065 54.1726 207.768 33.6607 187.256C13.1466 166.742 1.84905 139.468 1.84905 110.457C1.84905 81.4467 13.1466 54.1726 33.6585 33.6607L37.0915 37.0937C17.4964 56.6888 6.70475 82.7434 6.70475 110.457C6.70475 138.171 17.4964 164.225 37.0915 183.823C56.6888 203.418 82.7434 214.212 110.457 214.212C138.171 214.212 164.225 203.42 183.821 183.823L187.254 187.256C166.739 207.768 139.468 219.065 110.457 219.065ZM51.314 51.314C18.7026 83.9253 18.7026 136.989 51.314 169.6C83.9253 202.212 136.989 202.212 169.6 169.6L173.033 173.033C156.319 189.748 134.095 198.953 110.457 198.953C86.8193 198.953 64.5953 189.748 47.8809 173.033C30.6298 155.78 22.0031 133.119 22.0031 110.457C22.0031 87.7957 30.6298 65.1344 47.8809 47.881L51.314 51.314ZM164.859 164.859C179.857 149.862 187.357 130.158 187.357 110.457C187.357 90.756 179.857 71.0527 164.859 56.0548C134.862 26.0568 86.0527 26.0568 56.0548 56.0548L52.6218 52.6218C84.513 20.7306 136.401 20.7306 168.292 52.6218C200.184 84.513 200.184 136.401 168.292 168.292L164.859 164.859ZM155.378 155.378C167.762 142.993 173.955 126.725 173.955 110.457C173.955 94.189 167.762 77.9209 155.378 65.5364C130.609 40.7675 90.3053 40.7675 65.5364 65.5364L62.1034 62.1034C88.7655 35.4413 132.149 35.4413 158.811 62.1034C185.473 88.7656 185.473 132.149 158.811 158.811L155.378 155.378ZM150.637 150.637C161.369 139.905 167.281 125.634 167.281 110.457C167.281 95.2803 161.369 81.0093 150.637 70.2772C139.905 59.5452 125.634 53.6336 110.457 53.6336C95.2781 53.6336 81.0092 59.5452 70.2772 70.2772L66.8442 66.8442C90.893 42.7955 130.021 42.7955 154.072 66.8442C166.097 78.8708 172.11 94.6618 172.108 110.457C172.105 126.25 166.094 142.048 154.072 154.07L150.637 150.637ZM110.457 165.432C95.773 165.432 81.968 159.714 71.585 149.329C60.8685 138.613 55.5091 124.534 55.5091 110.457C55.5091 96.3805 60.8685 82.3016 71.585 71.5851C81.968 61.2021 95.773 55.4839 110.457 55.4839C125.141 55.4839 138.946 61.2021 149.329 71.5851C160.045 82.3016 165.405 96.3805 165.405 110.457C165.405 124.534 160.045 138.613 149.329 149.329C138.946 159.714 125.141 165.432 110.457 165.432Z"/>
+      </svg>
+      <svg class="brand-word" viewBox="0 0 115 40" aria-hidden="true">
+        <path d="M104.371 5.22858C104.371 8.15211 106.437 10.2727 109.422 10.2727C112.464 10.2727 114.531 8.15211 114.531 5.22858C114.531 2.24811 112.464 0.0705571 109.422 0.0705571C106.494 0.0694182 104.371 2.24811 104.371 5.22858ZM105.252 39.0969H113.651V12.2726H105.252V39.0969ZM92.5719 11.4401C88.9562 11.4401 85.9529 13.1621 84.4507 15.3829H84.3401V12.2738H76.6089V39.098H85.0073V23.8255C85.0073 20.6594 87.065 18.7164 89.6793 18.7164C92.0712 18.7164 93.4616 20.2152 93.4616 23.3813V39.098H101.86V21.714C101.861 15.105 98.3013 11.4401 92.5719 11.4401ZM21.1049 25.6568C21.1049 21.2698 18.5465 18.7153 14.9866 18.7153C11.4267 18.7153 8.81242 21.2698 8.81242 25.6568C8.81242 30.045 11.4267 32.6542 14.9866 32.6542C18.5454 32.6542 21.1049 30.045 21.1049 25.6568ZM29.5581 25.6568C29.5581 34.6529 22.8284 39.9294 14.9855 39.9294C7.19844 39.9305 0.46875 34.7657 0.46875 25.6568C0.46875 16.6038 7.19844 11.4389 14.9855 11.4389C22.8284 11.4401 29.5581 16.6049 29.5581 25.6568ZM73.219 21.3814V39.098H64.8753V23.0465C64.8753 20.1583 63.6514 18.7153 61.2036 18.7153C58.5893 18.7153 56.6981 20.7699 56.6981 23.8244V39.0969H48.3545V23.0465C48.3545 20.1583 47.1306 18.7153 44.6281 18.7153C42.1255 18.7153 40.2344 20.7699 40.2344 23.8244V39.0969H31.8359V12.2726H39.5671V15.3271H39.6789C41.0693 13.1609 44.1843 11.4389 47.799 11.4389C51.5813 11.4389 54.1956 13.1609 55.5301 15.9934C57.0871 13.383 60.3687 11.4389 63.9845 11.4389C69.7708 11.4401 73.219 15.2166 73.219 21.3814Z"/>
+      </svg>
+      <span class="brand-tag">Leaderboard</span>
+    </a>
+    <div class="hello">
+      <span>You</span>
+      <strong id="me-name">—</strong>
+    </div>
+  </header>
 
-    <ul class="meta">
-      <li><span>build</span><strong id="build-time">—</strong></li>
-      <li><span>host</span><strong>Cloudflare Pages</strong></li>
-      <li><span>source</span><strong>github.com/hireclaw-websites</strong></li>
-    </ul>
+  <main id="view" role="main"></main>
 
-    <button id="ping" class="ping">say hi</button>
-    <p id="reply" class="reply" aria-live="polite"></p>
-  </main>
+  <nav class="tabbar" aria-label="Primary">
+    <a class="tab" href="#/home" data-route="#/home" aria-label="Home">
+      <svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Home</span>
+    </a>
+    <a class="tab" href="#/board" data-route="#/board" aria-label="Leaderboards">
+      <svg viewBox="0 0 24 24"><path d="M4 20h4V10H4zM10 20h4V4h-4zM16 20h4v-8h-4z" stroke-linejoin="round"/></svg>
+      <span>Boards</span>
+    </a>
+    <a class="tab tab-cta" href="#/start" data-route="#/start" aria-label="Start workout">
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5v14" stroke-linecap="round"/></svg>
+      <span>Train</span>
+    </a>
+    <a class="tab" href="#/profile" data-route="#/profile" aria-label="Profile">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6" stroke-linecap="round"/></svg>
+      <span>You</span>
+    </a>
+  </nav>
 
-  <footer>
-    crafted by <span>claude-opus-4-7</span>
-  </footer>
-
+  <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
