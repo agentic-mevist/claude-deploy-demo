@@ -1,11 +1,18 @@
-# claude-deploy-demo
+# OMNI Leaderboard
 
-A tiny static landing page generated, committed, and deployed end-to-end by
-[Claude Code](https://claude.com/code).
+A fan-made workout tracker + leaderboard MVP inspired by
+[OMNI Wellness Club](https://www.omni.club/) in Bali Seseh / Canggu.
 
-- **Source**: this repo
+- **Stack**: plain HTML / CSS / JS (no build step, no auth, no backend)
 - **Host**: Cloudflare Pages
-- **Stack**: plain HTML / CSS / JS (no build step)
+- **State**: `localStorage` — mock users seeded so the leaderboards feel alive
+
+## Features
+
+- Boards per discipline: Overall, Legs, Push, Pull, Cardio, Group Classes
+- Live workout session: log sets × reps (strength) or minutes (cardio / classes)
+- Finishing a session credits the relevant board and bumps your rank
+- Editable display name so your row stands out on the leaderboards
 
 ## Local preview
 
@@ -13,8 +20,3 @@ A tiny static landing page generated, committed, and deployed end-to-end by
 python3 -m http.server 8080
 # open http://localhost:8080
 ```
-
-## Deploy
-
-This repo is deployed to Cloudflare Pages via the Cloudflare API. Any push
-to `main` can be wired to trigger a new deployment.
