@@ -1,20 +1,20 @@
 :root {
   color-scheme: dark;
-  --bg:          #4944D9;
-  --bg-elev:     #3D38C5;
-  --bg-card:     rgba(255, 255, 255, 0.08);
-  --line:        rgba(255, 255, 255, 0.14);
-  --line-2:      rgba(255, 255, 255, 0.24);
+  --bg:          #232132;
+  --bg-elev:     #2C2940;
+  --bg-card:     rgba(255, 255, 255, 0.05);
+  --line:        rgba(255, 255, 255, 0.10);
+  --line-2:      rgba(255, 255, 255, 0.20);
   --fg:          #ffffff;
   --fg-dim:      rgba(255, 255, 255, 0.82);
   --muted:       rgba(255, 255, 255, 0.55);
-  --lavender:    #C9C4F5;
-  --accent:      #D4FF3D;
-  --accent-2:    #E4FF75;
-  --accent-soft: rgba(212, 255, 61, 0.16);
-  --gold:        #FFE45C;
-  --silver:      #EAEAF2;
-  --bronze:      #FFB983;
+  --lavender:    #A9A4DB;
+  --accent:      #B4DC61;
+  --accent-2:    #C8E985;
+  --accent-soft: rgba(180, 220, 97, 0.14);
+  --gold:        #F0D572;
+  --silver:      #E0DEEC;
+  --bronze:      #D69D6D;
   --radius:      18px;
   --radius-sm:   12px;
   --display:     "Monoton", ui-serif, Georgia, serif;
@@ -28,8 +28,8 @@ body {
   font-family: var(--sans);
   color: var(--fg);
   background:
-    radial-gradient(900px 600px at 12% -8%, rgba(212, 255, 61, 0.10), transparent 60%),
-    radial-gradient(700px 500px at 108% 8%, rgba(255, 255, 255, 0.08), transparent 60%),
+    radial-gradient(900px 600px at 12% -8%, rgba(180, 220, 97, 0.06), transparent 60%),
+    radial-gradient(700px 500px at 108% 8%, rgba(169, 164, 219, 0.10), transparent 60%),
     var(--bg);
   min-height: 100vh;
   font-size: 15px;
@@ -52,7 +52,7 @@ input { font: inherit; color: inherit; }
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(73, 68, 217, 0.85);
+  background: rgba(35, 33, 50, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -168,11 +168,11 @@ main {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   transition: transform 80ms ease, background 120ms ease, box-shadow 120ms ease;
-  box-shadow: 0 0 0 0 rgba(212, 255, 61, 0);
+  box-shadow: 0 0 0 0 rgba(180, 220, 97, 0);
 }
 .btn-primary:hover {
   background: var(--accent-2);
-  box-shadow: 0 0 0 6px rgba(212, 255, 61, 0.18);
+  box-shadow: 0 0 0 6px rgba(180, 220, 97, 0.18);
 }
 .btn-primary:active { transform: translateY(1px); }
 
@@ -334,7 +334,7 @@ main {
 }
 .lb-row.podium { border-color: rgba(255, 228, 92, 0.32); }
 .lb-row.me {
-  background: linear-gradient(180deg, rgba(212, 255, 61, 0.18), rgba(212, 255, 61, 0.04));
+  background: linear-gradient(180deg, rgba(180, 220, 97, 0.18), rgba(180, 220, 97, 0.04));
   border-color: var(--accent);
 }
 .lb-rank {
@@ -683,7 +683,7 @@ main {
 .tabbar {
   position: fixed;
   left: 0; right: 0; bottom: 0;
-  background: rgba(61, 56, 197, 0.92);
+  background: rgba(35, 33, 50, 0.92);
   border-top: 1px solid var(--line);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -971,7 +971,7 @@ main {
   gap: 10px;
   padding: 10px 0 12px;
   margin: -10px 0 0;
-  background: linear-gradient(180deg, var(--bg) 60%, rgba(73, 68, 217, 0.0));
+  background: linear-gradient(180deg, var(--bg) 60%, rgba(35, 33, 50, 0));
 }
 .sess-bar .btn-primary, .sess-bar .btn-ghost { padding: 10px 18px; font-size: 12px; }
 
@@ -1178,7 +1178,7 @@ main {
 .pick-row:hover { border-color: var(--accent); }
 .pick-row.selected {
   border-color: var(--accent);
-  background: rgba(212, 255, 61, 0.10);
+  background: rgba(180, 220, 97, 0.10);
 }
 .pick-check {
   width: 22px;
